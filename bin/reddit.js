@@ -38,7 +38,7 @@ function listPost(data){
     }
     console.log(chalk.red('score:'), post.score);
     console.log(chalk.magenta('id:'), post.id);
-    console.log('');
+    console.log(chalk.bold.bgBlue('           '));
   }
 }
 
