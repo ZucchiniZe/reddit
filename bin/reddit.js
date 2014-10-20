@@ -33,6 +33,9 @@ function listPost(data){
     if(post.link_flair_text !== null){
       console.log(chalk.green('flare:'), post.link_flair_text);
     }
+    if(argv.f === true) {
+      console.log(chalk.cyan('subreddit:'), post.subreddit);
+    }
     console.log(chalk.red('score:'), post.score);
     console.log(chalk.magenta('id:'), post.id);
     console.log('');
