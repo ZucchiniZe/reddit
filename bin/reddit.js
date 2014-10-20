@@ -1,16 +1,16 @@
 #!/usr/bin/env node
 var package = require('../package.json');
 var argv = require('yargs')
-  .usage('reddit CLI v' + package.version + '\nUsage: $0 -r [subreddit] -l [limit]')
-  .example('$0 -r node -l 1', 'show one post in /r/node')
-  .describe('f', 'Show frontpage')
-  .describe('r', 'Show subreddit')
-  .describe('l', 'Limit of posts')
-  .alias('r', ['sub', 'subreddit'])
-  .alias('l', 'limit')
-  .alias('f', 'frontpage')
-  .demand('l')
-  .argv;
+    .usage('reddit CLI v' + package.version + '\nUsage: $0 -r [subreddit] -l [limit]')
+    .example('$0 -r node -l 1', 'show one post in /r/node')
+    .describe('f', 'Show frontpage')
+    .describe('r', 'Show subreddit')
+    .describe('l', 'Limit of posts')
+    .alias('r', ['sub', 'subreddit'])
+    .alias('l', 'limit')
+    .alias('f', 'frontpage')
+    .demand('l')
+    .argv;
 var Snoocore = require('snoocore');
 var chalk = require('chalk');
 var reddit = new Snoocore({ userAgent: 'Node CLI /u/ZucchiniZe v'+package.version });
