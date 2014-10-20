@@ -16,6 +16,11 @@ var chalk = require('chalk');
 var reddit = new Snoocore({ userAgent: 'Node CLI /u/ZucchiniZe v'+package.version });
 var subreddit = argv.r;
 var limit = argv.l;
+var mode = 'hot';
+
+if(argv.t === true) {
+  mode = 'top';
+}
 
 function listPost(data){
   for(var i=0; i < data.children.length ;i++){
@@ -43,7 +48,7 @@ function listPost(data){
 }
 
 if(argv.r !== undefined){
-  reddit('/r/$subreddit/hot').listing({
+  reddit('/r/$subreddit/'+mode).listing({
     $subreddit: subreddit,
     limit: limit
   }).then(function(data){
@@ -52,7 +57,7 @@ if(argv.r !== undefined){
 }
 
 if(argv.f === true) {
-  reddit.raw('https://www.reddit.com/.json').listing({
+  reddit.raw('https://www.reddit.com/'+mode+'.json').listing({
     limit: limit
   }).then(function(data){
     listPost(data);
